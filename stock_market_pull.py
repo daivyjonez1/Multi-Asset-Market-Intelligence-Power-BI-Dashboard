@@ -1,7 +1,35 @@
 import yfinance as yf
 import pandas as pd
 
-tickers = ["AAPL", "MSFT", "TSLA", "NVDA"]
+assets = {
+
+"AAPL":"Equity",
+"MSFT":"Equity",
+"NVDA":"Equity",
+"GOOGL":"Equity",
+"AMZN":"Equity",
+
+"BTC-USD":"Crypto",
+"ETH-USD":"Crypto",
+
+"SPY":"ETF",
+
+"GC=F":"Commodity",
+
+"USDNGN=X":"Forex"
+
+}
+
+for ticker, asset_class in assets.items():
+
+    df = yf.download(
+        ticker,
+        start="2000-01-01"
+    )
+
+    df["Ticker"] = ticker
+
+    df["Asset_Class"] = asset_class
 
 all_data =  []
 
