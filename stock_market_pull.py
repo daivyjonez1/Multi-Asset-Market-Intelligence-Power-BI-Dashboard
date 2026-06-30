@@ -9,7 +9,7 @@ for ticker in tickers:
 
     df = yf.download(
         ticker,
-        period="2y"
+        period="20y"
     )
 
     # flatten multiindex columns
