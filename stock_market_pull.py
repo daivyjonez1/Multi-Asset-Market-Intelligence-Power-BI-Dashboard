@@ -6,17 +6,22 @@ tickers = ["AAPL", "MSFT", "TSLA", "NVDA"]
 all_data = []
 
 for ticker in tickers:
-    
+
     df = yf.download(
         ticker,
-        start="2024-01-01",
-        interval="1d"
+        period="2y"
     )
+
+    # flatten multiindex columns
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = df.columns.get_level_values(0)
+
+    df.reset_index(inplace=True)
 
     df["Ticker"] = ticker
 
     all_data.append(df)
 
-final_df = pd.concat(all_data)
+final = pd.concat(all_data, ignore_index=True)
 
-final_df.to_csv("market_data.csv")
+final.to_csv("market_data.csv", index=False)
