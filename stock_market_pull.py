@@ -3,7 +3,7 @@ import pandas as pd
 
 tickers = ["AAPL", "MSFT", "TSLA", "NVDA"]
 
-all_data = []
+all_data =  []
 
 for ticker in tickers:
 
