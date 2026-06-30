@@ -4,47 +4,72 @@ import pandas as pd
 # Asset metadata
 assets = {
 
-    "AAPL": "Equity",
-    "MSFT": "Equity",
-    "NVDA": "Equity",
-    "GOOGL": "Equity",
-    "AMZN": "Equity",
+    "AAPL": {
+        "asset_class": "Equity",
+        "asset_name": "Apple Inc",
+        "sector": "Technology",
+        "region": "USA"
+    },
 
-    "BTC-USD": "Crypto",
-    "ETH-USD": "Crypto",
+    "MSFT": {
+        "asset_class": "Equity",
+        "asset_name": "Microsoft Corporation",
+        "sector": "Technology",
+        "region": "USA"
+    },
 
-    "SPY": "ETF",
+    "NVDA": {
+        "asset_class": "Equity",
+        "asset_name": "NVIDIA Corporation",
+        "sector": "Semiconductors",
+        "region": "USA"
+    },
 
-    "GC=F": "Commodity",
+    "BTC-USD": {
+        "asset_class": "Crypto",
+        "asset_name": "Bitcoin",
+        "sector": "Digital Asset",
+        "region": "Global"
+    },
 
-    "USDNGN=X": "Forex"
+    "GC=F": {
+        "asset_class": "Commodity",
+        "asset_name": "Gold Futures",
+        "sector": "Precious Metals",
+        "region": "Global"
+    },
+
+    "USDNGN=X": {
+        "asset_class": "Forex",
+        "asset_name": "US Dollar / Nigerian Naira",
+        "sector": "Currency",
+        "region": "Nigeria"
+    }
+
 }
 
 # Store all datasets here
 all_data = []
 
 # Loop through assets
-for ticker, asset_class in assets.items():
-
-    print(f"Downloading {ticker}...")
+for ticker, metadata in assets.items():
 
     df = yf.download(
         ticker,
         start="2000-01-01"
     )
 
-    # Fix MultiIndex issue
     if isinstance(df.columns, pd.MultiIndex):
         df.columns = df.columns.get_level_values(0)
 
-    # Convert index to normal column
     df.reset_index(inplace=True)
 
-    # Add metadata columns
     df["Ticker"] = ticker
-    df["Asset_Class"] = asset_class
+    df["Asset_Class"] = metadata["asset_class"]
+    df["Asset_Name"] = metadata["asset_name"]
+    df["Sector"] = metadata["sector"]
+    df["Region"] = metadata["region"]
 
-    # Append to master list
     all_data.append(df)
 
 # Combine everything
