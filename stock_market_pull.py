@@ -37,6 +37,13 @@ assets = {
         "asset_name": "Gold Futures",
         "sector": "Precious Metals",
         "region": "Global"
+    },
+
+    "ETH-USD": {
+        "asset_class": "Crypto",
+        "asset_name": "Ethereum",
+        "sector": "Digital Asset",
+        "region": "Global"
     }
 
 }
