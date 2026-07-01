@@ -37,13 +37,6 @@ assets = {
         "asset_name": "Gold Futures",
         "sector": "Precious Metals",
         "region": "Global"
-    },
-
-    "USDNGN=X": {
-        "asset_class": "Forex",
-        "asset_name": "US Dollar / Nigerian Naira",
-        "sector": "Currency",
-        "region": "Nigeria"
     }
 
 }
