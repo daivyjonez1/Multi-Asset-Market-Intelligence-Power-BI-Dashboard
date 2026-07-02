@@ -1,4 +1,4 @@
-name: Daily Market Update
+name: Daily Market Update v2
 
 on:
   schedule:
