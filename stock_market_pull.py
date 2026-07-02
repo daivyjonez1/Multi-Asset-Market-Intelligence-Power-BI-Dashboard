@@ -58,7 +58,14 @@ assets = {
         "asset_name": "WTI Crude Oil Futures",
         "sector": "Energy",
         "region": "Global"
-    }
+    },
+    
+    "ETH-USD": {
+        "asset_class": "Crypto",
+        "asset_name": "Ethereum",
+        "sector": "Digital Asset",
+        "region": "Global"
+        }
 
 }
 
