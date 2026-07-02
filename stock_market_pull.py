@@ -39,10 +39,24 @@ assets = {
         "region": "Global"
     },
 
-    "ETH-USD": {
-        "asset_class": "Crypto",
-        "asset_name": "Ethereum",
-        "sector": "Digital Asset",
+    "TSLA": {
+        "asset_class": "Equity",
+        "asset_name": "Tesla Inc.",
+        "sector": "Automotive / EV",
+        "region": "United States"
+    },
+
+    "SI=F": {
+        "asset_class": "Commodity",
+        "asset_name": "Silver Futures",
+        "sector": "Precious Metals",
+        "region": "Global"
+    },
+
+    "CL=F": {
+        "asset_class": "Commodity",
+        "asset_name": "WTI Crude Oil Futures",
+        "sector": "Energy",
         "region": "Global"
     }
 
